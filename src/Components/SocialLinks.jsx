@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaGithub , FaLinkedin } from 'react-icons/fa';
 import {HiOutlineMailOpen} from  'react-icons/hi'
-import {BsFillPersonLinesFill} from 'react-icons/bs';
+import {BsFillPersonLinesFill,BsYoutube} from 'react-icons/bs';
 const SocialLinks = () => {
     const links = [
         {
@@ -11,7 +11,7 @@ const SocialLinks = () => {
                 LinkedIn<FaLinkedin size={30}/>
                 </>
             ),
-            href:'https://www.linkedin.com/in/kumkum-rathour-665901233/',
+            href:'https://www.linkedin.com/in/apoorv-pandey/',
             style:'rounded-tr-md'
         },
         {
@@ -21,7 +21,7 @@ const SocialLinks = () => {
                 Github<FaGithub size={30}/>
                 </>
             ),
-            href:'https://github.com/kumkumrathour'
+            href:'https://github.com/apoorvpandey0'
         },
         {
             id:3,
@@ -30,7 +30,7 @@ const SocialLinks = () => {
                 Mail<HiOutlineMailOpen size={30}/>
                 </>
             ),
-            href:'mailto: kumkumrathour00@gmail.com'
+            href:'mailto: apoorvpandey0@gmail.com'
         },
         {
             id:4,
@@ -39,9 +39,19 @@ const SocialLinks = () => {
                Resume <BsFillPersonLinesFill size={30}/>
                 </>
             ),
-            href:'.\resume+(5)+(2).pdf',
+            href:'RESUME 14 April 2023.pdf',
             style:'rounded-br-md',
             download:true,
+        },
+        {
+            id:5,
+            child:(
+                <>
+               Youtube <BsYoutube size={30}/>
+                </>
+            ),
+            href:'https://www.youtube.com/channel/UCqt-XHfPFjSZPV8WqWaTV8Q',
+            style:'rounded-br-md',
         }
     ];
   return (
