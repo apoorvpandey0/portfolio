@@ -7,24 +7,13 @@ const About = () => {
         <div className='pb-8'>
             <p className='text-4xl font-bold inline border-b-4 border-gray-500'>About</p>
         </div>
-        <p className='text-xl mt-20'>
-        I am Kumkum Rathour, to express my interest in the software developer position
-        at your esteemed firm. I will be graduating in May 2023 with a degree in Electronics
-        and Communications Engineering from the University Institute of Technology RGPV Bhopal,
-        one of the leading engineering institutes in India. As a final-year undergraduate,
-        I have worked as a Front End Developer at rapidops for three month as an intern, where
-        I developed and maintained their website, and created a website to support daily job and 
-        internship updates in their day-to-day operations. My work helped the firm grow rapidly.
-        I have also completed several relevant online courses and read books that have furthered
-        my skills as a web developer.
+        <p className='text-xl mt-5 text-slate-200'>
+        Apoorv Pandey is a skilled and motivated software developer with experience in data science, mobile app development, and web development. With a Bachelor's degree in Information Technology from the University Institute of Technology RGPV, Bhopal, Apoorv has demonstrated his proficiency in programming languages such as Python and Dart. 
+        He has also gained expertise in technologies such as Flutter, Django, and Azure, and has earned certifications in Azure Fundamentals, Azure AI Fundamentals, and Blockchain Specialization by Coursera. 
         </p>
         <br />
-        <p className='text-xl'>
-        I have experience in developing websites for different purposes using a range of coding languages 
-        such as HTML, CSS, JavaScript, ReactJS and Java. Additionally, I have developed a React-JS website
-        for a project and an food-order Item website . I am confident in my ability to work independently 
-        and take responsibility for the development of complex systems. I am looking for an opportunity to
-        work with your firm to gain exposure to a different facet of the industry and its challenges. 
+        <p className='text-xl text-slate-200'>
+        Apoorv has proven his ability to work efficiently on diverse projects, from developing and maintaining mobile applications with over 100,000 downloads to handling backend deployments on AWS. His dedication and commitment to his work have been recognized in his achievements, such as helping save 100+ hours of work time with automation during his internship at Bajaj Finserv Health. Apoorv is an enthusiastic learner and an excellent team player who enjoys sharing his knowledge through workshops and courses.
         </p>
       </div>
     </div>
