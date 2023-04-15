@@ -10,22 +10,31 @@ import github from '../Image/github.png';
 import nextjs from '../Image/nextjs.png';
 import java from '../Image/java.png';
 
+const getShuffledArr = arr => {
+    const newArr = arr.slice()
+    for (let i = newArr.length - 1; i > 0; i--) {
+        const rand = Math.floor(Math.random() * (i + 1));
+        [newArr[i], newArr[rand]] = [newArr[rand], newArr[i]];
+    }
+    return newArr
+};
+
 const Experience = () => {
-    const  techs = [
+    const  techs = getShuffledArr( [
         {
             id:1,
-            src:html,
-            title:'HTML',
+            src:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
+            title:'Flutter',
             style:'shadow-orange-500'
         },{
             id:2,
-            src:css,
-            title:'CSS',
+            src:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain-wordmark.svg",
+            title:'Django',
             style:'shadow-blue-500'
         },{
             id:3,
             src:JavaScript,
-            title:'JavaScript1',
+            title:'JavaScript',
             style:'shadow-yellow-500'
         },{
             id:4,
@@ -34,13 +43,13 @@ const Experience = () => {
             style:'shadow-blue-600'
         },{
             id:5,
-            src:nextjs,
-            title:'Next.js',
+            src:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+            title:'Python',
             style:'shadow-white'
         },{
             id:6,
-            src:vite,
-            title:'Vite',
+            src:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg",
+            title:'Dart',
             style:'shadow-blue-400'
         },{
             id:7,
@@ -50,17 +59,17 @@ const Experience = () => {
         },
         {
             id:8,
-            src:github,
-            title:'Github',
+            src:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg",
+            title:'Pandas',
             style:'shadow-gray-400'
         },
         {
             id:9,
-            src:java,
-            title:'Java',
+            src:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/selenium/selenium-original.svg",
+            title:'Selenium',
             style:'shadow-red-400'
         }
-    ]
+    ])
 
 
   return ( 
