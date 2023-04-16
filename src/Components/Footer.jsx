@@ -2,42 +2,50 @@ import React from 'react'
 import { FaGithub , FaLinkedin } from 'react-icons/fa';
 import {HiOutlineMailOpen} from  'react-icons/hi'
 import {BsFillPersonLinesFill,BsYoutube} from 'react-icons/bs';
+import { Tooltip } from 'react-tooltip'
+import 'react-tooltip/dist/react-tooltip.css';
+
+
+
 const links = [
     {
         id:1,
         child:(
             <>
-            LinkedIn<FaLinkedin size={30}/>
+            <FaLinkedin size={30}/>
             </>
         ),
+        tooltip:'Visit my Linkedin',
         href:'https://www.linkedin.com/in/apoorv-pandey/',
         style:'rounded-tr-md'
     },
     {
         id:2,
         child:(
-            <>
-            Github<FaGithub size={30}/>
-            </>
+
+            <FaGithub size={30}/>
         ),
+        tooltip:'Visit my Linkedin Profile',
         href:'https://github.com/apoorvpandey0'
     },
     {
         id:3,
         child:(
             <>
-            Mail<HiOutlineMailOpen size={30}/>
+            <HiOutlineMailOpen size={30}/>
             </>
         ),
+        tooltip:'Send me a Mail',
         href:'mailto: apoorvpandey0@gmail.com'
     },
     {
         id:4,
         child:(
             <>
-           Resume <BsFillPersonLinesFill size={30}/>
+           <BsFillPersonLinesFill size={30}/>
             </>
         ),
+        tooltip:'Download my Resume',
         href:'RESUME 14 April 2023.pdf',
         download:true,
     },
@@ -45,9 +53,10 @@ const links = [
         id:5,
         child:(
             <>
-           Youtube <BsYoutube size={30}/>
+           <BsYoutube size={30}/>
             </>
         ),
+        tooltip:'Visit my Youtube Channel',
         href:'https://www.youtube.com/channel/UCqt-XHfPFjSZPV8WqWaTV8Q',
         style:'rounded-br-md',
     }
@@ -55,10 +64,11 @@ const links = [
 function Footer() {
   return (
     <>
-    <div name='SocialLink' className=''>
-    <ul className='flex flex-row justify-center'>
-      {links.map(({id, child, href, style, download}) =>(
-          <li key={id} className= {" flex justify-between items-center w-40 h-14 px-4 hover:bg-gray-700 bg-gray-500"}>
+    <Tooltip id="my-tooltip" />
+    <div name='SocialLink' className='bg-gray-500'>
+    <ul className='flex flex-row justify-evenly'>
+      {links.map(({id, child, href, style, download,tooltip}) =>(
+          <li data-tooltip-id="my-tooltip" data-tooltip-content={tooltip} key={id} className= {" flex justify-between items-center h-14 px-4 hover:bg-gray-700 bg-gray-500"}>
           <a href={href} 
           className="flex justify-between items-center w-full text-white"
           download={download}
