@@ -117,7 +117,7 @@ export default function Projects() {
       <SectionHead id="work-title" eyebrow="Selected work" title="Products real customers rely on.">
         Health records, dashboards and apps used by lakhs of people, with the stack behind each one and the result it delivered.
       </SectionHead>
-      <div className="grid gap-5 md:grid-cols-2">
+      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
         {projects.map((p) => (
           <TiltCard key={p.name} project={p} />
         ))}

@@ -174,7 +174,7 @@ export default function Hero() {
           </p>
         )}
 
-        <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_240px] md:items-center">
+        <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_240px] md:items-center xl:grid-cols-[minmax(0,1fr)_320px] xl:gap-16">
           <div>
             <p data-inspect="p.eyebrow" className="eyebrow inline-block py-1">
               {profile.role} · {profile.company} · {profile.location}
@@ -211,13 +211,13 @@ export default function Hero() {
             data-inspect="img.avatar"
             src={photo}
             alt={profile.name}
-            className="aspect-[4/5] w-full max-w-[240px] rounded-[20px] object-cover object-[68%_50%]"
+            className="aspect-[4/5] w-full max-w-[240px] rounded-[20px] xl:max-w-[320px] object-cover object-[68%_50%]"
           />
         </div>
 
         <dl data-inspect="dl.stats" className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-4">
           {stats.map((s) => (
-            <div key={s.label} data-inspect="div.stat" className="flex flex-col-reverse gap-1 bg-surface p-5">
+            <div key={s.label} data-inspect="div.stat" className="flex flex-col-reverse justify-end gap-1 bg-surface p-5">
               <dt className="text-sm leading-snug text-muted">{s.label}</dt>
               <dd className="font-display text-[clamp(30px,4vw,44px)] font-bold leading-none tracking-tight">{s.value}</dd>
             </div>
