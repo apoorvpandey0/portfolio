@@ -20,14 +20,14 @@ function Highlight({ text }: { text: string }) {
 
 export default function Experience() {
   return (
-    <section id="experience" aria-labelledby="experience-title" className="wrap py-20">
+    <section id="experience" aria-labelledby="experience-title" className="wrap py-14 md:py-20">
       <SectionHead id="experience-title" eyebrow="Experience" title="Shipping to production since 2022.">
         From a health platform used across India to a global logistics company, frontend has always been my job.
       </SectionHead>
 
       <ol className="flex flex-col">
         {experience.map((role) => (
-          <li key={role.company} className="grid gap-4 border-t border-line py-10 md:grid-cols-[280px_minmax(0,1fr)] md:gap-10">
+          <li key={role.company} className="grid grid-cols-1 gap-4 border-t border-line py-10 md:grid-cols-[280px_minmax(0,1fr)] md:gap-10">
             <div>
               <h3 className="text-2xl font-bold">{role.company}</h3>
               <p className="mt-1 text-[15px] font-medium">{role.title}</p>

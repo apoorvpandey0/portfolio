@@ -66,12 +66,12 @@ export default function Playground() {
   if (disabled) attrs.push(<Attr key="x" k="disabled" />)
 
   return (
-    <section id="components" aria-labelledby="components-title" className="wrap py-20">
+    <section id="components" aria-labelledby="components-title" className="wrap py-14 md:py-20">
       <SectionHead id="components-title" eyebrow="From my component library" title="Built for every customer: any language, any state.">
         Every variant, size and state is a prop, and right-to-left support is built in rather than bolted on. That's how the Al-Koot app shipped in English and Arabic. Try the controls.
       </SectionHead>
 
-      <div className="grid gap-5 md:grid-cols-[minmax(0,300px)_minmax(0,1fr)]">
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-[minmax(0,300px)_minmax(0,1fr)]">
         <form className="flex flex-col gap-5 rounded-[18px] border border-line bg-surface p-5" onSubmit={(e) => e.preventDefault()}>
           <Segmented legend="variant" name="variant" value={variant} onChange={setVariant} options={[{ value: 'primary', label: 'Primary' }, { value: 'outline', label: 'Outline' }, { value: 'ghost', label: 'Ghost' }]} />
           <Segmented legend="size" name="size" value={size} onChange={setSize} options={[{ value: 'sm', label: 'sm' }, { value: 'md', label: 'md' }, { value: 'lg', label: 'lg' }]} />

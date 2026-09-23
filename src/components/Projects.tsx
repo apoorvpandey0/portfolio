@@ -113,11 +113,11 @@ function TiltCard({ project }: { project: Project }) {
 
 export default function Projects() {
   return (
-    <section id="work" aria-labelledby="work-title" className="wrap py-20">
+    <section id="work" aria-labelledby="work-title" className="wrap py-14 md:py-20">
       <SectionHead id="work-title" eyebrow="Selected work" title="Products real customers rely on.">
         Health records, dashboards and apps used by lakhs of people, with the stack behind each one and the result it delivered.
       </SectionHead>
-      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
         {projects.map((p) => (
           <TiltCard key={p.name} project={p} />
         ))}

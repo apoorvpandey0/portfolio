@@ -6,11 +6,13 @@ import SectionHead from './SectionHead'
 // [token class, text]; an empty class is plain text.
 type Token = [string, string]
 
+// Lines are kept to 46 characters or fewer so the snippet fits a phone screen without scrolling.
 const LINES: Token[][] = [
-  [['kw', 'export function'], ['', ' '], ['fn', 'MetricCard'], ['', '({ label, value, trend }) {']],
+  [['kw', 'export function'], ['', ' '], ['fn', 'MetricCard'], ['', '(props) {']],
+  [['', '  '], ['kw', 'const'], ['', ' { label, value, trend } = props;']],
   [['', '  '], ['kw', 'const'], ['', ' shown = '], ['fn', 'useCountUp'], ['', '(value);']],
   [['', '  '], ['kw', 'return'], ['', ' (']],
-  [['', '    <'], ['tg', 'article'], ['', ' '], ['at', 'className'], ['', '='], ['st', '"card"'], ['', ' '], ['at', 'aria-label'], ['', '={label}>']],
+  [['', '    <'], ['tg', 'article'], ['', ' '], ['at', 'aria-label'], ['', '={label}>']],
   [['', '      <'], ['tg', 'p'], ['', ' '], ['at', 'className'], ['', '='], ['st', '"label"'], ['', '>{label}</'], ['tg', 'p'], ['', '>']],
   [['', '      <'], ['tg', 'strong'], ['', '>{shown}</'], ['tg', 'strong'], ['', '>']],
   [['', '      <'], ['fn', 'Sparkline'], ['', ' '], ['at', 'data'], ['', '={trend} />']],
@@ -21,7 +23,7 @@ const LINES: Token[][] = [
 ]
 
 // Line index at which each part of the rendered card appears.
-const AT = { frame: 3, label: 4, value: 5, spark: 6, badge: 7 }
+const AT = { frame: 4, label: 5, value: 6, spark: 7, badge: 8 }
 const LAST = LINES.length - 1
 
 export default function CodeToUI() {
@@ -66,13 +68,13 @@ export default function CodeToUI() {
   const users = useCountUp(200000, step >= AT.value, reduced)
 
   return (
-    <section id="craft" aria-labelledby="craft-title" className="pt-20">
+    <section id="craft" aria-labelledby="craft-title" className="pt-14 md:pt-20">
       <div className="wrap">
         <SectionHead id="craft-title" eyebrow="How I build" title="Components first. Pixels second.">
           Customer-facing apps at scale depend on their building blocks. I design the component API, make it accessible, and let the UI follow. {scrubbing ? 'Scroll to watch one of my Smart Reports cards come together.' : ''}
         </SectionHead>
       </div>
-      <div ref={track} className="wrap grid items-center gap-6 pb-20 md:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)]">
+      <div ref={track} className="wrap grid grid-cols-1 items-center gap-6 pb-14 md:pb-20 md:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)]">
         <figure className="code m-0 overflow-hidden rounded-2xl shadow-lift">
           <figcaption className="flex items-center gap-2 border-b border-white/10 px-4 py-2.5 font-mono text-xs text-[var(--code-dim)]">
             <span className="h-2.5 w-2.5 rounded-full bg-[#3a4358]" />
@@ -80,7 +82,7 @@ export default function CodeToUI() {
             <span className="h-2.5 w-2.5 rounded-full bg-[#3a4358]" />
             <span className="ml-2">MetricCard.tsx</span>
           </figcaption>
-          <pre className="m-0 overflow-x-auto py-4 font-mono text-[12.5px] leading-[1.75] md:text-sm">
+          <pre className="m-0 overflow-x-auto py-4 font-mono text-[11px] leading-[1.75] sm:text-[12.5px] md:text-sm">
             <code>
               {LINES.map((tokens, i) => (
                 <span key={i} data-n={i + 1} className={`ln${i <= step ? ' on' : ''}${scrubbing && i === step ? ' cur' : ''}`}>
@@ -101,7 +103,7 @@ export default function CodeToUI() {
             className={`flex min-h-[250px] flex-col gap-2.5 rounded-[18px] border-[1.5px] bg-surface p-6 transition-shadow ${step >= AT.frame ? 'border-solid border-line shadow-lift' : 'border-dashed border-line'}`}
           >
             <p className={`part text-sm font-medium text-muted${on(AT.label)}`}>Smart Reports users</p>
-            <strong className={`part font-display text-[52px] font-bold leading-none tracking-tight tabular-nums${on(AT.value)}`}>
+            <strong className={`part font-display text-[clamp(40px,11vw,52px)] font-bold leading-none tracking-tight tabular-nums${on(AT.value)}`}>
               {Math.round(users).toLocaleString('en-IN')}+
             </strong>
             <svg className={`part h-14 w-full${on(AT.spark)}`} viewBox="0 0 300 56" preserveAspectRatio="none" aria-hidden="true">

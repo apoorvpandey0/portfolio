@@ -106,8 +106,8 @@ export default function Contact() {
   ]
 
   return (
-    <section id="contact" aria-labelledby="contact-title" className="wrap py-20">
-      <div className="grid gap-10 rounded-[24px] border border-line bg-surface p-6 sm:p-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-14">
+    <section id="contact" aria-labelledby="contact-title" className="wrap py-14 md:py-20">
+      <div className="grid grid-cols-1 gap-10 rounded-[24px] border border-line bg-surface p-6 sm:p-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-14">
         <div className="flex flex-col items-start gap-5">
           <p className="eyebrow">Contact</p>
           <h2 id="contact-title" className="text-[clamp(34px,5vw,56px)] font-bold leading-[1.02]">

@@ -138,7 +138,7 @@ export default function TechStack() {
   }
 
   return (
-    <section id="stack" aria-labelledby="stack-title" className="wrap py-20">
+    <section id="stack" aria-labelledby="stack-title" className="wrap py-14 md:py-20">
       <SectionHead id="stack-title" eyebrow="Toolkit" title="The stack, hands-on.">
         Grab a skill and throw it. The ones I reach for every day are in blue.
       </SectionHead>

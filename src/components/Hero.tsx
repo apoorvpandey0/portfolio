@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState, type HTMLAttributes, type PointerEvent } from 'react'
+import { Fragment, useCallback, useEffect, useRef, useState, type HTMLAttributes, type PointerEvent } from 'react'
 import photo from '../assets/apoorv.webp'
 import { profile, stats } from '../data/profile'
 import { clamp, useMediaQuery } from '../lib/hooks'
@@ -57,19 +57,22 @@ function DecodeName({ text, ...rest }: { text: string } & HTMLAttributes<HTMLHea
     <h1 {...rest} aria-label={text} onPointerEnter={run}>
       <span aria-hidden="true">
         {text.split(' ').map((word, w) => (
-          <span key={w} className="whitespace-nowrap">
+          // The space sits outside the no-wrap span so the name can still break between words on phones.
+          <Fragment key={w}>
             {w > 0 && ' '}
-            {word.split('').map((c) => {
-              const i = index++ + w
-              const scrambled = glyphs !== null && i >= solved
-              return (
-                <span key={i} className="relative">
-                  <span className={scrambled ? 'invisible' : undefined}>{c}</span>
-                  {scrambled && <span className="absolute inset-0 text-center">{glyphs[i]}</span>}
-                </span>
-              )
-            })}
-          </span>
+            <span className="whitespace-nowrap">
+              {word.split('').map((c) => {
+                const i = index++ + w
+                const scrambled = glyphs !== null && i >= solved
+                return (
+                  <span key={i} className="relative">
+                    <span className={scrambled ? 'invisible' : undefined}>{c}</span>
+                    {scrambled && <span className="absolute inset-0 text-center">{glyphs[i]}</span>}
+                  </span>
+                )
+              })}
+            </span>
+          </Fragment>
         ))}
       </span>
     </h1>
@@ -153,7 +156,7 @@ export default function Hero() {
   }
 
   return (
-    <section id="top" aria-label="Introduction" className="wrap pb-20 pt-8 sm:pt-14">
+    <section id="top" aria-label="Introduction" className="wrap pb-6 pt-6 sm:pt-14 md:pb-20">
       <div
         ref={stage}
         onPointerMove={onMove}
@@ -165,7 +168,7 @@ export default function Hero() {
           inspect(el)
         }}
         onBlur={hide}
-        className="relative overflow-hidden rounded-[24px] border border-line bg-surface p-6 shadow-lift sm:p-12 [@media(pointer:fine)]:cursor-crosshair"
+        className="relative overflow-hidden rounded-[24px] border border-line bg-surface p-5 shadow-lift sm:p-12 [@media(pointer:fine)]:cursor-crosshair"
       >
         {finePointer && (
           <p className="absolute right-4 top-4 flex items-center gap-2 font-mono text-xs text-muted">
@@ -174,7 +177,7 @@ export default function Hero() {
           </p>
         )}
 
-        <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_240px] md:items-center xl:grid-cols-[minmax(0,1fr)_320px] xl:gap-16">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-[minmax(0,1fr)_240px] md:items-center md:gap-10 xl:grid-cols-[minmax(0,1fr)_320px] xl:gap-16">
           <div>
             <p data-inspect="p.eyebrow" className="eyebrow inline-block py-1">
               {profile.role} · {profile.company} · {profile.location}
@@ -182,7 +185,7 @@ export default function Hero() {
             <DecodeName
               text={profile.name}
               data-inspect="h1.name"
-              className="mt-3 text-[clamp(48px,9vw,104px)] font-extrabold leading-none tracking-[-0.035em]"
+              className="mt-3 text-[clamp(40px,11vw,104px)] font-extrabold leading-none tracking-[-0.035em]"
             />
             <p data-inspect="p.tagline" className="mt-5 font-display text-[clamp(24px,3vw,34px)] font-semibold leading-tight">
               {profile.tagline}
@@ -211,13 +214,13 @@ export default function Hero() {
             data-inspect="img.avatar"
             src={photo}
             alt={profile.name}
-            className="aspect-[4/5] w-full max-w-[240px] rounded-[20px] xl:max-w-[320px] object-cover object-[68%_50%]"
+            className="order-first aspect-square w-20 rounded-2xl object-cover object-[68%_50%] md:order-none md:aspect-[4/5] md:w-full md:max-w-[240px] md:rounded-[20px] xl:max-w-[320px]"
           />
         </div>
 
-        <dl data-inspect="dl.stats" className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-4">
+        <dl data-inspect="dl.stats" className="mt-8 sm:mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-4">
           {stats.map((s) => (
-            <div key={s.label} data-inspect="div.stat" className="flex flex-col-reverse justify-end gap-1 bg-surface p-5">
+            <div key={s.label} data-inspect="div.stat" className="flex flex-col-reverse justify-end gap-1 bg-surface p-4 sm:p-5">
               <dt className="text-sm leading-snug text-muted">{s.label}</dt>
               <dd className="font-display text-[clamp(30px,4vw,44px)] font-bold leading-none tracking-tight">{s.value}</dd>
             </div>

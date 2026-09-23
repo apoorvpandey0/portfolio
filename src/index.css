@@ -139,6 +139,10 @@
   .code { background: var(--code-bg); color: var(--code-ink); }
   .ln { display: block; padding-right: 18px; white-space: pre; opacity: 0.28; transition: opacity 0.25s, background 0.25s; }
   .ln::before { content: attr(data-n); display: inline-block; width: 40px; padding-right: 16px; text-align: right; color: var(--code-dim); }
+  @media (max-width: 639px) {
+    .ln { padding-right: 12px; }
+    .ln::before { width: 30px; padding-right: 10px; }
+  }
   .ln.on { opacity: 1; }
   .ln.cur { background: rgba(130, 170, 255, 0.12); box-shadow: inset 2px 0 0 #82aaff; }
   .t-kw { color: #c792ea; }
